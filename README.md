@@ -108,3 +108,4 @@ This method is the way to go, if you are using compressed maps and browser ES6 m
 - automatic linkage, by name, with objects and sprites
 - it might be cool to be able to assign your own symbols to specifc tiles to make maps a little more readable.
 - load maps directly (not via `addLevel`) so we can do more advanced things (different map-types, spacing/margin/etc)
+- external tilesets
