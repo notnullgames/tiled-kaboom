@@ -189,6 +189,9 @@ function base64Decode(data) {
 }
 
 export default (k) => {
+  // this will be imported if needed for compressed layers
+  let pako
+
   return {
     verifyTiledMap,
 
@@ -200,8 +203,6 @@ export default (k) => {
         levels: [],
         key: {}
       }
-
-      let pako
 
       for (let tileset of mapObj.tilesets) {
         if (tileset.margin !== 0) {
