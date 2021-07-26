@@ -25,13 +25,13 @@
   "module": "./dist/kaboom-tiled.module.js",
   "unpkg": "./dist/kaboom-tiled.umd.js",
   "files": [
-    "kaboom-tiled.cjs",
-    "kaboom-tiled.cjs.map",
-    "kaboom-tiled.modern.js",
-    "kaboom-tiled.modern.js.map",
-    "kaboom-tiled.module.js",
-    "kaboom-tiled.module.js.map",
-    "kaboom-tiled.umd.js",
-    "kaboom-tiled.umd.js.map"
+    "dist/kaboom-tiled.cjs",
+    "dist/kaboom-tiled.cjs.map",
+    "dist/kaboom-tiled.modern.js",
+    "dist/kaboom-tiled.modern.js.map",
+    "dist/kaboom-tiled.module.js",
+    "dist/kaboom-tiled.module.js.map",
+    "dist/kaboom-tiled.umd.js",
+    "dist/kaboom-tiled.umd.js.map"
   ]
 }
