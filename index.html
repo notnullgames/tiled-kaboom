@@ -32,6 +32,7 @@ const main = async () => {
   const { sprites, levels, key } = await k.loadTiledMap(await fetch('map.json').then(r => r.json()))
 
   // here you can do whatever you like to key, for example adding solid()
+  // eventually, I will auto-load tags when I load the map.
   
   for (let level of levels) {
     k.addLevel(level, { width: 32, height: 32, ...key })
