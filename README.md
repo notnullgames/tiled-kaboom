@@ -105,3 +105,4 @@ import tiledKaboom from 'tiled-kaboom'
 - support for object-layers (both shapes and images)
 - support for animations
 - automatic linkage, by name, with objects and sprites
+- it might be cool to be able to assign your own symbols to specifc tiles to make maps a little more readable.
