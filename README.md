@@ -16,7 +16,7 @@ You can see example-usage of the library [here](https://github.com/konsumer/tile
 You can test it out with this command:
 
 ```sh
-npx serve
+npm start
 ```
 
 ### TODO

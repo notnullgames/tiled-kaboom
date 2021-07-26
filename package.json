@@ -5,7 +5,7 @@
   "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
   "module": "./kaboom-tiled.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx serve"
   },
   "repository": {
     "type": "git",
