@@ -4,14 +4,15 @@ This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https:/
 
 ![screenshot](screenshot.png)
 
-You can find a deployed example of it running, [here](https://notnullgames.github.io/tiled-kaboom/).
+
+Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/). Here is [the source](https://github.com/konsumer/tiled-kaboom/blob/main/index.html).
+
+---
 
 
 The terrain tiles came from [here](https://opengameart.org/content/tiled-terrains) and uses a terrain-set to make it really fast & easy to make cool maps in tiled.
 
 In your map-files, make sure the layer-format is "CSV" and compression is turned off. Embed your tilemaps.
-
-You can see example-usage of the library [here](https://github.com/konsumer/tiled-kaboom/blob/main/index.html).
 
 You can test it out with this command:
 
