@@ -28,7 +28,7 @@ const k = kaboom({
     plugins: [ tiledKaboom ]
 })
 
-// get my JSON file with the map, and parse it
+// parse my map object
 const { sprites, levels, key } = await k.loadTiledMap(map)
 
 // here you can do whatever you like to key, for example adding solid()
