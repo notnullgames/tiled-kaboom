@@ -17,13 +17,15 @@ canvas {
   border: 4px solid yellow;
 }
 </style>
+
 <script src="https://kaboomjs.com/lib/dev/kaboom.js"></script>
+
 <script type="module">
-import pluginTiled from 'https://unpkg.com/tiled-kaboom@latest/kaboom-tiled.js'
+import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest?module'
 
 const main = async () => {
   const k = kaboom({
-      plugins: [ pluginTiled ]
+      plugins: [ tiledKaboom ]
   })
 
   // sprites - loaded sprites for all the tilesets
