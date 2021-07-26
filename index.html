@@ -36,6 +36,9 @@ const main = async () => {
   
   for (let level of levels) {
     k.addLevel(level, { width: 32, height: 32, ...key })
+
+    // level is just a regular kaboom map-string array
+    console.log(level.join('\n'))
   }
 }
 
