@@ -72,7 +72,7 @@ I personally like to use the new ES6 module support in modern browsers. You can 
 
 ```html
 <script type="module">
-import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js'
+import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/tiled-kaboom.modern.js'
 </script>
 ```
 
@@ -84,7 +84,7 @@ You can also use an import-map, if you want it to look neater in your actual cod
 {
   "imports": {
     "pako": "https://unpkg.com/pako@2.0.3/dist/pako.esm.mjs",
-    "tiled-kaboom": "https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js"
+    "tiled-kaboom": "https://unpkg.com/tiled-kaboom@latest/dist/tiled-kaboom.modern.js"
   }
 }
 </script>

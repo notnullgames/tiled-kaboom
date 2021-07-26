@@ -19,20 +19,20 @@
     "url": "https://github.com/notnullgames/tiled-kaboom/issues"
   },
   "homepage": "https://github.com/notnullgames/tiled-kaboom#readme",
-  "source": "./kaboom-tiled.js",
-  "exports": "./dist/kaboom-tiled.modern.js",
-  "main": "./dist/kaboom-tiled.cjs",
-  "module": "./dist/kaboom-tiled.module.js",
-  "unpkg": "./dist/kaboom-tiled.umd.js",
+  "source": "./tiled-kaboom.js",
+  "exports": "./dist/tiled-kaboom.modern.js",
+  "main": "./dist/tiled-kaboom.cjs",
+  "module": "./dist/tiled-kaboom.module.js",
+  "unpkg": "./dist/tiled-kaboom.umd.js",
   "files": [
-    "dist/kaboom-tiled.cjs",
-    "dist/kaboom-tiled.cjs.map",
-    "dist/kaboom-tiled.modern.js",
-    "dist/kaboom-tiled.modern.js.map",
-    "dist/kaboom-tiled.module.js",
-    "dist/kaboom-tiled.module.js.map",
-    "dist/kaboom-tiled.umd.js",
-    "dist/kaboom-tiled.umd.js.map"
+    "dist/tiled-kaboom.cjs",
+    "dist/tiled-kaboom.cjs.map",
+    "dist/tiled-kaboom.modern.js",
+    "dist/tiled-kaboom.modern.js.map",
+    "dist/tiled-kaboom.module.js",
+    "dist/tiled-kaboom.module.js.map",
+    "dist/tiled-kaboom.umd.js",
+    "dist/tiled-kaboom.umd.js.map"
   ],
   "dependencies": {
     "pako": "^2.0.3"
