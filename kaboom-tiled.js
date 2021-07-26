@@ -156,7 +156,6 @@ const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
   return [...a, String.fromCharCode(c)]
 }, [])
 
-
 function verifyTiledMap (mapObj) {
   // TODO: add more validation here
   if (!mapObj) {
@@ -173,6 +172,24 @@ function verifyTiledMap (mapObj) {
   if (mapObj.renderorder !== 'right-down') {
     throw new Error(`Map is ${mapObj.renderorder}. Only right-down is currently supported.`)
   }
+}
+
+// decode data in Tiled base64 format
+function base64Decode(data) {
+    const len = data.length
+    const bytes = new Array(len / 4)
+
+    // Interpret data as an array of bytes representing little-endian encoded uint32 values.
+    for (let i = 0; i < len; i += 4) {
+        bytes[i / 4] = (
+            data.charCodeAt(i) |
+            data.charCodeAt(i + 1) << 8 |
+            data.charCodeAt(i + 2) << 16 |
+            data.charCodeAt(i + 3) << 24
+        ) >>> 0
+    }
+
+    return bytes
 }
 
 export default (k) => {
@@ -208,7 +225,18 @@ export default (k) => {
 
       for (let layer of mapObj.layers) {
         if (layer.type === "tilelayer" && layer.visible) {
-          const { width, height, data } = layer
+          const { width, height } = layer
+          let { data } = layer
+
+          if (layer.encoding === 'base64') {
+            if (!layer.compression || layer.compression === '') {
+              data = base64Decode(atob(data))
+            } else {
+              console.error(`${layer.name} uses compression, but that isn't supported (yet.) Save it uncompressed.`)
+              continue
+            }
+          }
+
           const mapArray = [...new Array(width)].map(() => (new Array(height+1).fill(' ')))
           for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {

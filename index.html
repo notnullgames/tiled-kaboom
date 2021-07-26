@@ -22,7 +22,8 @@ canvas {
 <script src="https://kaboomjs.com/lib/dev/kaboom.js"></script>
 
 <script type="module">
-import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js'
+import tiledKaboom from './kaboom-tiled.js'
+
 import map from './map.json' assert { type: "json" }
 
 const k = kaboom({
@@ -37,9 +38,6 @@ const { sprites, levels, key } = await k.loadTiledMap(map)
 
 for (let level of levels) {
   k.addLevel(level, { width: 32, height: 32, ...key })
-
-  // level is just a regular kaboom map-string array
-  console.log(level.join('\n'))
 }
 
 </script>
