@@ -27,7 +27,9 @@ const k = kaboom({
 // then later
 
 const { sprites, levels, key } = await k.loadTiledMap(YOUR_MAP_OBJECT)
-
+for (let level of levels) {
+  k.addLevel(level, { width: 32, height: 32, ...key })
+}
 ```
 
 There are a couple of differnt ways to get `tiledKaboom` depending on how you are doing things.
