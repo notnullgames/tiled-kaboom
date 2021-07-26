@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/notnullgames/tiled-kaboom.git"
   },
-  "keywords": [],
+  "keywords": ["kaboom", "tiled", "tilemap"],
   "author": "David Konsumer <konsumer@jetboystudio.com>",
   "license": "MIT",
   "bugs": {
