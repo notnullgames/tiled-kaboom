@@ -10,7 +10,16 @@ Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/)
 ---
 
 
-The terrain tiles came from [here](https://opengameart.org/content/tiled-terrains) and uses a terrain-set to make it really fast & easy to make cool maps in tiled.
+## features
+
+- easy & fun to work with
+- think of it as an "advanced map" if you outgrow the awesome built-in kaboom maps
+- handles layers in csv, base64, and 3 kinds of compression
+- easier to make more complex maps
+- generates regular kaboom text-maps
+- many ways to import the plugin, depending on how your app is setup
+- use tiled map directly, so you don't need to generate a seperate map file for your game
+
 
 ## usage
 
@@ -97,10 +106,18 @@ import tiledKaboom from 'tiled-kaboom'
 
 This method is the way to go, if you are using compressed maps and browser ES6 module support.
 
-### TODO
+
+## credits
+
+- The terrain tiles in demo came from [here](https://opengameart.org/content/tiled-terrains) and uses a terrain-set to make it really fast & easy to make cool maps in tiled.
+- The waterfall in demo came from [here](https://opengameart.org/content/lpc-animated-water-and-waterfalls)
+- Obviously thanks to [kaboom](https://kaboomjs.com/) and [tiled](https://www.mapeditor.org/), 2 great tools for making games
+
+
+
+## TODO
 
 - more testing. only basic map is working
-- support for base64 & compression
 - per-tile collision shapes is nice for things like coastlines
 - support for tags ("custom properties")
 - support for object-layers (both shapes and images)
