@@ -101,6 +101,7 @@ This method is the way to go, if you are using compressed maps and browser ES6 m
 
 - more testing. only basic map is working
 - support more modes/orientation
+- support for base64 & compression
 - margin/spacing will probably require more work on kaboom-side
 - per-tile collision shapes is nice for things like coastlines
 - support for tags ("custom properties")
