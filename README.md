@@ -5,7 +5,7 @@ This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https:/
 ![screenshot](screenshot.png)
 
 
-Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/). Here is [the source](https://github.com/konsumer/tiled-kaboom/blob/main/index.html). This demo uses the latest ES6 module & JSON-import support in up-to-date browsers, and will not work in old browsers. You can still use the methods below to support them, though.
+Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/). Here is [the source](https://github.com/konsumer/tiled-kaboom/blob/main/index.html). This demo uses the latest ES6 module & JSON-import support in up-to-date browsers, and will not work in old browsers, but you can still use the methods below to support them, too.
 
 ---
 
@@ -41,7 +41,7 @@ for (let level of levels) {
 }
 ```
 
-There are a couple of different ways to get `tiledKaboom` depending on how you are doing things.
+There are a few different ways to get `tiledKaboom` depending on how you are doing things.
 
 
 ### regular tag
