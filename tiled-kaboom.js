@@ -162,10 +162,6 @@ function verifyTiledMap (mapObj) {
     throw new Error('Map parameter is required.')
   }
 
-  if (mapObj.compressionlevel !== -1) {
-    throw new Error('Map is compressed. Only uncompressed is currently supported.')
-  }
-
   if (mapObj.orientation !== 'orthogonal') {
     throw new Error(`Map is ${mapObj.orientation}. Only orthogonal is currently supported.`)
   }
