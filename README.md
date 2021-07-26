@@ -14,7 +14,7 @@ The terrain tiles came from [here](https://opengameart.org/content/tiled-terrain
 
 ## usage
 
-In your map-files, make sure the layer-format is "CSV" and compression is turned off. Embed your tilemaps.
+In your map-files, make sure the compression is turned off. Embed your tilemaps.
 
 
 The basic usage with Kaboom goes like this:
