@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "type": "module",
   "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
-  "module": "./kaboom-tiled.js",
   "scripts": {
-    "start": "npx serve"
+    "start": "npx serve",
+    "build": "npx microbundle",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,20 @@
   "bugs": {
     "url": "https://github.com/notnullgames/tiled-kaboom/issues"
   },
-  "homepage": "https://github.com/notnullgames/tiled-kaboom#readme"
+  "homepage": "https://github.com/notnullgames/tiled-kaboom#readme",
+  "source": "./kaboom-tiled.js",
+  "exports": "./dist/kaboom-tiled.modern.js",
+  "main": "./dist/kaboom-tiled.cjs",
+  "module": "./dist/kaboom-tiled.module.js",
+  "unpkg": "./dist/kaboom-tiled.umd.js",
+  "files": [
+    "kaboom-tiled.cjs",
+    "kaboom-tiled.cjs.map",
+    "kaboom-tiled.modern.js",
+    "kaboom-tiled.modern.js.map",
+    "kaboom-tiled.module.js",
+    "kaboom-tiled.module.js.map",
+    "kaboom-tiled.umd.js",
+    "kaboom-tiled.umd.js.map"
+  ]
 }

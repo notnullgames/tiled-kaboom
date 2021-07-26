@@ -1,6 +1,6 @@
 // big array of characters that are suitable for maps
 // TODO: I got annoyed after 3001
-export const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
+const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
   if ([
     92,
     173,
@@ -157,7 +157,7 @@ export const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
 }, [])
 
 
-export function verifyTiledMap (mapObj) {
+function verifyTiledMap (mapObj) {
   // TODO: add more validation here
   if (!mapObj) {
     throw new Error('Map parameter is required.')
@@ -177,6 +177,7 @@ export function verifyTiledMap (mapObj) {
 
 export default (k) => {
   return {
+    verifyTiledMap,
     async loadTiledMap(mapObj, location='') {
       verifyTiledMap(mapObj)
       
