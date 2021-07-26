@@ -32,7 +32,7 @@ for (let level of levels) {
 }
 ```
 
-There are a couple of differnt ways to get `tiledKaboom` depending on how you are doing things.
+There are a couple of different ways to get `tiledKaboom` depending on how you are doing things.
 
 
 ### regular tag
