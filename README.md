@@ -14,7 +14,7 @@ The terrain tiles came from [here](https://opengameart.org/content/tiled-terrain
 
 ## usage
 
-In your map-files, make sure the compression is turned off. Embed your tilemaps.
+In your map-files, make sure the compression is csv/base64/gzip/zlib (not Zstandard or Xml.) Embed your tilemaps.
 
 
 The basic usage with Kaboom goes like this:
@@ -31,6 +31,8 @@ for (let level of levels) {
   k.addLevel(level, { width: 32, height: 32, ...key })
 }
 ```
+
+For compressed maps, you will also need to install [pako](https://www.npmjs.com/package/pako) or have it setup in your import-map.
 
 There are a couple of different ways to get `tiledKaboom` depending on how you are doing things.
 
@@ -93,7 +95,6 @@ You can also use an import-map, if you want it to look neater in your actual cod
 import tiledKaboom from 'tiled-kaboom'
 </script>
 ```
-
 
 ### TODO
 

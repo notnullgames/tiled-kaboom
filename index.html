@@ -19,11 +19,19 @@ canvas {
 }
 </style>
 
+<!-- telling browser how to find pako allows compressed maps -->
+<script type="importmap">
+{
+  "imports": {
+    "tiled-kaboom": "./kaboom-tiled.js",
+    "pako": "https://unpkg.com/pako@2.0.3/dist/pako.esm.mjs"
+  }
+}
+</script>
+
 <script src="https://kaboomjs.com/lib/dev/kaboom.js"></script>
-
 <script type="module">
-import tiledKaboom from './kaboom-tiled.js'
-
+import tiledKaboom from 'tiled-kaboom'
 import map from './map.json' assert { type: "json" }
 
 const k = kaboom({

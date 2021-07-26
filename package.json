@@ -5,7 +5,7 @@
   "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
   "scripts": {
     "start": "npx serve",
-    "build": "npx microbundle",
+    "build": "npx microbundle -- --external pako",
     "prepublishOnly": "npm run build"
   },
   "repository": {

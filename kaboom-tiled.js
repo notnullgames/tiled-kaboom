@@ -195,6 +195,7 @@ function base64Decode(data) {
 export default (k) => {
   return {
     verifyTiledMap,
+
     async loadTiledMap(mapObj, location='') {
       verifyTiledMap(mapObj)
       
@@ -203,6 +204,8 @@ export default (k) => {
         levels: [],
         key: {}
       }
+
+      let pako
 
       for (let tileset of mapObj.tilesets) {
         if (tileset.margin !== 0) {
@@ -232,8 +235,11 @@ export default (k) => {
             if (!layer.compression || layer.compression === '') {
               data = base64Decode(atob(data))
             } else {
-              console.error(`${layer.name} uses compression, but that isn't supported (yet.) Save it uncompressed.`)
-              continue
+              if (typeof pako === 'undefined'){
+                pako = await import('pako')
+              }
+              const d = Uint8Array.from(atob(data).split('').map(c => c.charCodeAt(0)))
+              data = base64Decode(String.fromCharCode(...pako.inflate(d)))
             }
           }
 
