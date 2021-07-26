@@ -190,7 +190,7 @@ function base64Decode(data) {
 
 export default (k) => {
   // this will be imported if needed for compressed layers
-  let pako
+  let pako = window.pako
 
   return {
     verifyTiledMap,

@@ -5,7 +5,7 @@ This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https:/
 ![screenshot](screenshot.png)
 
 
-Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/). Here is [the source](https://github.com/konsumer/tiled-kaboom/blob/main/index.html).
+Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/). Here is [the source](https://github.com/konsumer/tiled-kaboom/blob/main/index.html). This dmeo uses the latest ES6 module & JSON-import support in up-to-date browsers, and will not work in old browsers. You can still use the methods below to support them, though.
 
 ---
 
@@ -52,7 +52,15 @@ If you are not using `type="module"` in your `<script>` tags, and aren't using a
 <script src="https://unpkg.com/tiled-kaboom"></script>
 ```
 
+For compressed maps, you also need pako:
+
+```html
+<script src="https://unpkg.com/pako@2.0.3/dist/pako.min.js"></script>
+```
+
+
 This will add `tiledKaboom` to your global-scope, so it can be used with `kaboom`.
+
 
 ### npm-based project
 
