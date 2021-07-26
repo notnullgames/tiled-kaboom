@@ -23,19 +23,18 @@ import pluginTiled from './kaboom-tiled.js'
 
 const main = async () => {
   const k = kaboom({
-      global: true,
       plugins: [ pluginTiled ]
   })
 
   // sprites - loaded sprites for all the tilesets
   // levels - string-arrays for each layer of the map
   // key - mapping of characters in levels to sprites (with frame)
-  const { sprites, levels, key } = await loadTiledMap(await fetch('map.json').then(r => r.json()))
+  const { sprites, levels, key } = await k.loadTiledMap(await fetch('map.json').then(r => r.json()))
 
   // here you can do whatever you like to key, for example adding solid()
 
   for (let level of levels) {
-    addLevel(level, { width: 32, height: 32, ...key })
+    k.addLevel(level, { width: 32, height: 32, ...key })
   }
 }
 
