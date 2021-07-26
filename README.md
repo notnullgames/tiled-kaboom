@@ -14,9 +14,9 @@ Here is an [example of it running](https://notnullgames.github.io/tiled-kaboom/)
 
 - easy & fun to work with
 - think of it as an "advanced map" if you outgrow the awesome built-in kaboom maps
-- handles layers in csv, base64, and 3 kinds of compression
 - easier to make more complex maps
 - generates regular kaboom text-maps
+- handles layers in csv, base64, and 3 kinds of compression
 - many ways to import the plugin, depending on how your app is setup
 - use tiled map directly, so you don't need to generate a seperate map file for your game
 
