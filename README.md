@@ -17,7 +17,7 @@ The terrain tiles came from [here](https://opengameart.org/content/tiled-terrain
 In your map-files, make sure the layer-format is "CSV" and compression is turned off. Embed your tilemaps.
 
 
-The short of it is this:
+The basic usage with Kaboom goes like this:
 
 ```js
 const k = kaboom({
@@ -65,7 +65,7 @@ I personally like to use the new ES6 module support in modern browsers. You can 
 
 ```html
 <script type="module">
-import tiledKaboom from 'https://unpkg.com/tiled-kaboom?module'
+import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js'
 </script>
 ```
 
@@ -76,7 +76,7 @@ You can also use an import-map, if you want it to look neater in your actual cod
 <script type="importmap">
 {
   "imports": {
-    "tiled-kaboom": "https://unpkg.com/tiled-kaboom?module"
+    "tiled-kaboom": "https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js"
   }
 }
 </script>

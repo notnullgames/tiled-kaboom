@@ -21,16 +21,15 @@ canvas {
 <script src="https://kaboomjs.com/lib/dev/kaboom.js"></script>
 
 <script type="module">
-import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest?module'
+import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js'
+
 
 const main = async () => {
   const k = kaboom({
       plugins: [ tiledKaboom ]
   })
 
-  // sprites - loaded sprites for all the tilesets
-  // levels - string-arrays for each layer of the map
-  // key - mapping of characters in levels to sprites (with frame)
+  // get my JSON file with the map, and parse it
   const { sprites, levels, key } = await k.loadTiledMap(await fetch('map.json').then(r => r.json()))
 
   // here you can do whatever you like to key, for example adding solid()
