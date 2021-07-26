@@ -2,8 +2,6 @@
 
 This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.
 
-It's currently broken, but I am working on it:
-
 ![screenshot](screenshot.png)
 
 
@@ -18,3 +16,13 @@ You can test it out with this command:
 ```sh
 npx serve
 ```
+
+### TODO
+
+- more testing. only basic map is working
+- support more modes/orientation/margin/spacing
+- per-tile collision shapes is nice for things like coastlines
+- support for tags ("custom properties")
+- support for object-layers (both shapes and images)
+- support for animations
+- automatic linkage, by name, with objects and sprites

@@ -208,11 +208,10 @@ export default (k) => {
       for (let layer of mapObj.layers) {
         if (layer.type === "tilelayer" && layer.visible) {
           const { width, height, data } = layer
-          const mapArray = [...new Array(height)].map(() => (new Array(width).fill(' ')))
-          console.log(mapArray)
-          for (let y = 0; y < height; y++) {
-            for (let x = 0; x < width; x++) {
-              const cell = (y*height) + x
+          const mapArray = [...new Array(width)].map(() => (new Array(height+1).fill(' ')))
+          for (let x = 0; x < width; x++) {
+            for (let y = 0; y < height; y++) {
+              const cell = (y * width) + x
               if (data[cell] !== 0) {
                 mapArray[y][x] = mapsymbols[ data[cell] ]
               }
