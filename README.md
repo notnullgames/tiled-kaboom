@@ -100,12 +100,11 @@ This method is the way to go, if you are using compressed maps and browser ES6 m
 ### TODO
 
 - more testing. only basic map is working
-- support more modes/orientation
 - support for base64 & compression
-- margin/spacing will probably require more work on kaboom-side
 - per-tile collision shapes is nice for things like coastlines
 - support for tags ("custom properties")
 - support for object-layers (both shapes and images)
 - support for animations
 - automatic linkage, by name, with objects and sprites
 - it might be cool to be able to assign your own symbols to specifc tiles to make maps a little more readable.
+- load maps directly (not via `addLevel`) so we can do more advanced things (different map-types, spacing/margin/etc)
