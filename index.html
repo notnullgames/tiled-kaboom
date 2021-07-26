@@ -22,13 +22,14 @@ canvas {
 
 <script type="module">
 import tiledKaboom from 'https://unpkg.com/tiled-kaboom@latest/dist/kaboom-tiled.modern.js'
+import map from './map.json' assert { type: "json" }
 
 const k = kaboom({
     plugins: [ tiledKaboom ]
 })
 
 // get my JSON file with the map, and parse it
-const { sprites, levels, key } = await k.loadTiledMap(await fetch('map.json').then(r => r.json()))
+const { sprites, levels, key } = await k.loadTiledMap(map)
 
 // here you can do whatever you like to key, for example adding solid()
 // eventually, I will auto-load tags when I load the map.

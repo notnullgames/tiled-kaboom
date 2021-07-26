@@ -23,6 +23,11 @@ The basic usage with Kaboom goes like this:
 const k = kaboom({
   plugins: [ tiledKaboom ]
 })
+
+// then later
+
+const { sprites, levels, key } = await k.loadTiledMap(YOUR_MAP_OBJECT)
+
 ```
 
 There are a couple of differnt ways to get `tiledKaboom` depending on how you are doing things.
