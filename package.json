@@ -1,0 +1,21 @@
+{
+  "name": "tiled-kaboom",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
+  "module": "./kaboom-tiled.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notnullgames/tiled-kaboom.git"
+  },
+  "keywords": [],
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notnullgames/tiled-kaboom/issues"
+  },
+  "homepage": "https://github.com/notnullgames/tiled-kaboom#readme"
+}

@@ -22,7 +22,8 @@ npx serve
 ### TODO
 
 - more testing. only basic map is working
-- support more modes/orientation/margin/spacing
+- support more modes/orientation
+- margin/spacing will probably require more work on kaboom-side
 - per-tile collision shapes is nice for things like coastlines
 - support for tags ("custom properties")
 - support for object-layers (both shapes and images)
