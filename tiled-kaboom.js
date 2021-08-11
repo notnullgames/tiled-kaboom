@@ -1,3 +1,4 @@
+/* global atob */
 // big array of characters that are suitable for maps
 // TODO: I got annoyed after 3001
 const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
@@ -109,12 +110,12 @@ const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
     2983,
     2987,
     2988,
-    2989,
+    2989
 
-    ].includes(c)) {
+  ].includes(c)) {
     return a
   }
-  
+
   if (c < 33) {
     return a
   }
@@ -147,8 +148,8 @@ const mapsymbols = [...new Array(4052)].reduce((a, v, c) => {
     [2935, 2946]
   ]
 
-  for (let r of ranges) {
-    if (c > r[0]  && c < r[1]) {
+  for (const r of ranges) {
+    if (c > r[0] && c < r[1]) {
       return a
     }
   }
@@ -171,21 +172,21 @@ function verifyTiledMap (mapObj) {
 }
 
 // decode data in Tiled base64 format
-function base64Decode(data) {
-    const len = data.length
-    const bytes = new Array(len / 4)
+function base64Decode (data) {
+  const len = data.length
+  const bytes = new Array(len / 4)
 
-    // Interpret data as an array of bytes representing little-endian encoded uint32 values.
-    for (let i = 0; i < len; i += 4) {
-        bytes[i / 4] = (
-            data.charCodeAt(i) |
+  // Interpret data as an array of bytes representing little-endian encoded uint32 values.
+  for (let i = 0; i < len; i += 4) {
+    bytes[i / 4] = (
+      data.charCodeAt(i) |
             data.charCodeAt(i + 1) << 8 |
             data.charCodeAt(i + 2) << 16 |
             data.charCodeAt(i + 3) << 24
-        ) >>> 0
-    }
+    ) >>> 0
+  }
 
-    return bytes
+  return bytes
 }
 
 export default (k) => {
@@ -195,16 +196,16 @@ export default (k) => {
   return {
     verifyTiledMap,
 
-    async loadTiledMap(mapObj, location='') {
+    async loadTiledMap (mapObj, location = '') {
       verifyTiledMap(mapObj)
-      
+
       const map = {
         sprites: [],
         levels: [],
         key: {}
       }
 
-      for (let tileset of mapObj.tilesets) {
+      for (const tileset of mapObj.tilesets) {
         if (tileset.margin !== 0) {
           console.error(`${tileset.name} uses margins. That is currently unsupported. Skipping.`)
           continue
@@ -218,13 +219,13 @@ export default (k) => {
         const sliceY = tileset.imageheight / tileset.tileheight
         map.sprites.push(await k.loadSprite(tileset.name, `${location}${tileset.image}`, { sliceX, sliceY }))
 
-        for (let frame = tileset.firstgid; frame < (tileset.firstgid+tileset.tilecount); frame++){
-          map.key[ mapsymbols[frame] ] = [k.sprite(tileset.name, { frame: frame-1 })]
+        for (let frame = tileset.firstgid; frame < (tileset.firstgid + tileset.tilecount); frame++) {
+          map.key[mapsymbols[frame]] = [k.sprite(tileset.name, { frame: frame - 1 })]
         }
       }
 
-      for (let layer of mapObj.layers) {
-        if (layer.type === "tilelayer" && layer.visible) {
+      for (const layer of mapObj.layers) {
+        if (layer.type === 'tilelayer' && layer.visible) {
           const { width, height } = layer
           let { data } = layer
 
@@ -232,7 +233,7 @@ export default (k) => {
             if (!layer.compression || layer.compression === '') {
               data = base64Decode(atob(data))
             } else {
-              if (typeof pako === 'undefined'){
+              if (typeof pako === 'undefined') {
                 pako = await import('pako')
               }
               const d = Uint8Array.from(atob(data).split('').map(c => c.charCodeAt(0)))
@@ -240,12 +241,12 @@ export default (k) => {
             }
           }
 
-          const mapArray = [...new Array(width)].map(() => (new Array(height+1).fill(' ')))
+          const mapArray = [...new Array(width)].map(() => (new Array(height + 1).fill(' ')))
           for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
               const cell = (y * width) + x
               if (data[cell] !== 0) {
-                mapArray[y][x] = mapsymbols[ data[cell] ]
+                mapArray[y][x] = mapsymbols[data[cell]]
               }
             }
           }
