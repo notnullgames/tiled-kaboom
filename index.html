@@ -39,7 +39,10 @@ const k = kaboom({
 })
 
 // parse my map object
-const { sprites, levels, key } = await k.loadTiledMap(map)
+const { sprites, levels, key, mapObj } = await k.loadTiledMap(map)
+
+// this is the parsed map-object, with everything decompressed/etc
+console.log(mapObj)
 
 // here you can do whatever you like to key, for example adding solid()
 // eventually, I will auto-load tags when I load the map.

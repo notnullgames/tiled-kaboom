@@ -232,17 +232,16 @@ export default (k) => {
       for (const layer of mapObj.layers) {
         if (layer.type === 'tilelayer' && layer.visible) {
           const { width, height } = layer
-          let { data } = layer
 
           if (layer.encoding === 'base64') {
             if (!layer.compression || layer.compression === '') {
-              data = base64Decode(atob(data))
+              layer.data = base64Decode(atob(layer.data))
             } else {
               if (typeof pako === 'undefined') {
                 pako = await import('pako')
               }
-              const d = Uint8Array.from(atob(data).split('').map(c => c.charCodeAt(0)))
-              data = base64Decode(String.fromCharCode(...pako.inflate(d)))
+              const d = Uint8Array.from(atob(layer.data).split('').map(c => c.charCodeAt(0)))
+              layer.data = base64Decode(String.fromCharCode(...pako.inflate(d)))
             }
           }
 
@@ -250,14 +249,16 @@ export default (k) => {
           for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
               const cell = (y * width) + x
-              if (data[cell] !== 0) {
-                mapArray[y][x] = mapsymbols[data[cell]]
+              if (layer.data[cell] !== 0) {
+                mapArray[y][x] = mapsymbols[layer.data[cell]]
               }
             }
           }
           map.levels.push(mapArray.map(l => l.join('')))
         }
       }
+
+      map.mapObj = mapObj
 
       return map
     }
