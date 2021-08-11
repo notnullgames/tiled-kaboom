@@ -41,7 +41,7 @@ const k = kaboom({
 // parse my map object
 const { sprites, levels, key, mapObj } = await k.loadTiledMap(map)
 
-// this is the parsed map-object, with everything decompressed/etc
+// this is the parsed map-object, with everything decompressed, parsed, and inline as an object (good for external tilemaps or looking up tile info on a compresswed map)
 console.log(mapObj)
 
 // here you can do whatever you like to key, for example adding solid()
@@ -50,5 +50,21 @@ console.log(mapObj)
 for (let level of levels) {
   k.addLevel(level, { width: 32, height: 32, ...key })
 }
+
+// currently, there is no built-in support for object-properties, but it's very simple to use them anyway:
+
+// example: all my meta-objects with properties are on a layer named "Objects"
+const { objects } = map.layers.find(l => l.name === 'Objects')
+
+// I have an object named "player" I want info about
+const player = objects.find(o => o.name === 'player')
+
+console.log(player)
+
+// I want the properties in a nicer format
+const props = player.properties.reduce((a, v) => ({ ...a, [v.name]: v.value }), {})
+
+console.log('PLAYER', props)
+
 
 </script>
