@@ -197,7 +197,7 @@ export default (k) => {
     verifyTiledMap,
 
     async loadTiledMap (mapObj, location = '') {
-      // support string=URL oif map
+      // support string=URL
       if (typeof mapObj === 'string') {
         mapObj = await fetch(mapObj).then(r => r.json())
       }
