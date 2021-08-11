@@ -1,6 +1,6 @@
 {
   "name": "tiled-kaboom",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
   "scripts": {
@@ -12,7 +12,13 @@
     "type": "git",
     "url": "git+https://github.com/notnullgames/tiled-kaboom.git"
   },
-  "keywords": ["kaboom", "kaboom-js", "tiled", "tiled-map-editor", "tilemap"],
+  "keywords": [
+    "kaboom",
+    "kaboom-js",
+    "tiled",
+    "tiled-map-editor",
+    "tilemap"
+  ],
   "author": "David Konsumer <konsumer@jetboystudio.com>",
   "license": "MIT",
   "bugs": {
