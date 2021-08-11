@@ -1,6 +1,6 @@
 {
   "name": "tiled-kaboom",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "description": "This is a map-loader for [kaboom](https://kaboomjs.com/) to load [tiled](https://www.mapeditor.org/) JSON maps.",
   "scripts": {
