@@ -1,0 +1,144 @@
+<title>kaboom game</title>
+<link rel="icon" href="https://kaboomjs.com/pub/img/kaboom.png" />
+<style>
+body, * {
+  margin: 0;
+} 
+body {
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+canvas {
+  width: 90vw;
+  margin: 0;
+  background: black;
+  border: 4px solid yellow;
+}
+</style>
+
+<!-- telling browser how to find pako allows compressed maps -->
+<script type="importmap">
+{
+  "imports": {
+    "tiled-kaboom": "./tiled-kaboom.js",
+    "pako": "https://unpkg.com/pako@2.0.3/dist/pako.esm.mjs",
+    "kaboom": "https://unpkg.com/kaboom@2000.0.0-beta.24/dist/kaboom.mjs"
+  }
+}
+</script>
+<script type="module">
+import kaboom from 'kaboom'
+import tiledKaboom from 'tiled-kaboom'
+import map from './map.json' assert { type: "json" }
+
+const k = kaboom({
+    plugins: [ tiledKaboom ]
+})
+
+// load a sprite called player
+loadSprite('player', 'player.png')
+
+// parse map
+const {levels, key } = await k.loadTiledMap(map)
+for (let level of levels) {
+  addLevel(level, { width: 32, height: 32, ...key })
+}
+
+// get layer called "Objects"
+const { objects, offsetx, offsety } = map.layers.find(l => l.name === 'Objects')
+
+const speed = 200
+
+// setup tag-based collision (tags come from type property)
+// this only triggers on first touch, so it won't quite work
+// collides("player", "enemy", (a, b, side) => {
+//   if (a.pos.y > b.pos.y){
+//     console.log('over')
+//     a.z = 1
+//     b.z = 0
+//   }else{
+//     console.log('under')
+//     a.z = 0
+//     b.z = 1
+//   }
+// })
+
+// cal this on every frame of player
+const nonPlayers = []
+action("player", player => {
+  const playerRect = {
+    p1: player.pos,
+    p2: {
+      x: player.pos.x + 32,
+      y: player.pos.y + 32
+    }
+  }
+  for (const object of nonPlayers) {
+    const objectRect = {
+      p1: object.pos,
+      p2: {
+        x: object.pos.x + 32,
+        y: object.pos.y + 32
+      }
+    }
+    if (colRectRect(playerRect, objectRect)) {
+      if (player.pos.y > object.pos.y){
+        player.z = 1
+        object.z = 0
+      }else{
+        player.z = 0
+        object.z = 1
+      }
+    }
+  }
+})
+
+// add all objects with a "sprite" property
+for (const object of objects) {
+  // get props in nicer object
+  const props = object.properties.reduce((a, v) => ({ ...a, [v.name]: v.value }), {})
+  
+  // must have "prite" prop to use a sprite
+  if (props.sprite) {
+    const newthing = [
+      sprite(props.sprite),
+      pos(object.x + offsetx, object.y + offsety),
+      area(),
+      layer(0),
+      z(0),
+      // push some data and a tag from type
+      {...props, name: object.name},
+      object.type
+    ]
+    
+    // if boolean "body" prop, then add a body (physics)
+    if (props.body) {
+      newthing.push(body())
+    }
+    
+    const mapObject = k.add(newthing)
+
+    // if it's player add some keys to make it move
+    if (object.type === 'player') {
+      keyPressRep("left", () => {
+          mapObject.move(vec2(-speed, 0))
+      })
+      keyPressRep("right", () => {
+          mapObject.move(vec2(speed, 0))
+      })
+      keyPressRep("up", () => {
+          mapObject.move(vec2(0, -speed))
+      })
+      keyPressRep("down", () => {
+          mapObject.move(vec2(0, speed))
+      })
+    }else{
+      nonPlayers.push(mapObject)
+    }
+  }
+}
+
+</script>

@@ -4,7 +4,7 @@
  "layers":[
         {
          "compression":"gzip",
-         "data":"H4sIAAAAAAAAA9vLwMCwdxSP4lE8igcp3oPEBgBKQAXFsAQAAA==",
+         "data":"H4sIAAAAAAAAE9vLwMCwdxSP4lE8igcp3oPEBgBKQAXFsAQAAA==",
          "encoding":"base64",
          "height":15,
          "id":2,
@@ -18,7 +18,7 @@
         }, 
         {
          "compression":"gzip",
-         "data":"H4sIAAAAAAAAA2NgwA7EGBkYxLFgCUYcGgjo\/QEUN2fExN8Z8NsjhkcvKdgCal4YkL5BRfNAwIxCs2htHqV+vg7UG4EW75S40QLNLErNA6Uh5HRJaZpB9y+l8YHu38FuHiy9gMIhnBGCYekHWQwbBqlDjw+YmchhGgZVj56u0AG6OgDAIX6KsAQAAA==",
+         "data":"H4sIAAAAAAAAE2NgwA7EGBkYxLFgCUYcGgjo\/QEUN2fExN8Z8NsjhkcvKdgCal4YkL5BRfNAwIxCs2htHqV+vg7UG4EW75S40QLNLErNA6Uh5HRJaZpB9y+l8YHu38FuHiy9gMIhnBGCYekHWQwbBqlDjw+YmchhGgZVj56u0AG6OgDAIX6KsAQAAA==",
          "encoding":"base64",
          "height":15,
          "id":1,
@@ -32,7 +32,7 @@
         }, 
         {
          "compression":"gzip",
-         "data":"H4sIAAAAAAAAA+WR2wmAMAxF0\/rYQ3zsoaJ7RDdVnETcw4gNhlIh+qmBy01pckoagHDEFiARSu1N4UciNgCWlDi3gXNq9KyVvCQfSKM580Mo8o1qIgUzcxzukzkzmZs\/5KHX77O1vFHMyTMPTuh8otr+BU+y5BuVch+FtwNmo2CictYjaqqb4erDwOwL3bdKHjMbT51wzb\/9IXYIve6EsAQAAA==",
+         "data":"H4sIAAAAAAAAE+WR2wmAMAxF0\/rYQ3zsoaJ7RDdVnETcw4gNhlIh+qmBy01pckoagHDEFiARSu1N4UciNgCWlDi3gXNq9KyVvCQfSKM580Mo8o1qIgUzcxzukzkzmZs\/5KHX77O1vFHMyTMPTuh8otr+BU+y5BuVch+FtwNmo2CictYjaqqb4erDwOwL3bdKHjMbT51wzb\/9IXYIve6EsAQAAA==",
          "encoding":"base64",
          "height":15,
          "id":3,
@@ -46,7 +46,7 @@
         }, 
         {
          "compression":"gzip",
-         "data":"H4sIAAAAAAAAA2NgGAX0BmmM9NVHL5AyyN1HL5A6Gg40AwAOMoiKsAQAAA==",
+         "data":"H4sIAAAAAAAAE2NgGAX0BmmM9NVHL5AyyN1HL5A6Gg40AwAOMoiKsAQAAA==",
          "encoding":"base64",
          "height":15,
          "id":4,
@@ -60,7 +60,7 @@
         }, 
         {
          "compression":"gzip",
-         "data":"H4sIAAAAAAAAA2NgwA1WMDEwrATiVUx4FJEATgDNOQnEp6hk3gugOS+B+BWVzONgZmDgBGIuZuqYpwE0RxOItahkngfQHE8g9qKSeaNgFAw1AAAkcL00sAQAAA==",
+         "data":"H4sIAAAAAAAAE2NgwA1WMDEwrATiVUx4FJEATgDNOQnEp6hk3gugOS+B+BWVzONgZmDgBGIuZuqYpwE0RxOItahkngfQHE8g9qKSeaNgFAw1AAAkcL00sAQAAA==",
          "encoding":"base64",
          "height":15,
          "id":7,
@@ -83,6 +83,11 @@
                  "name":"player",
                  "properties":[
                         {
+                         "name":"body",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"lovesKaboom",
                          "type":"bool",
                          "value":true
@@ -101,6 +106,11 @@
                          "name":"speed",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"player"
                         }],
                  "rotation":0,
                  "type":"player",
@@ -108,6 +118,50 @@
                  "width":32,
                  "x":128,
                  "y":64
+                }, 
+                {
+                 "height":32,
+                 "id":3,
+                 "name":"badguy1",
+                 "properties":[
+                        {
+                         "name":"body",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"player"
+                        }],
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":32,
+                 "x":82,
+                 "y":87
+                }, 
+                {
+                 "height":32,
+                 "id":5,
+                 "name":"badguy2",
+                 "properties":[
+                        {
+                         "name":"body",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"player"
+                        }],
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":32,
+                 "x":177,
+                 "y":87
                 }],
          "offsetx":192,
          "offsety":160,
@@ -118,7 +172,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":3,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.1",
