@@ -24,13 +24,13 @@ canvas {
 {
   "imports": {
     "tiled-kaboom": "./tiled-kaboom.js",
-    "pako": "https://unpkg.com/pako@2.0.3/dist/pako.esm.mjs"
+    "pako": "https://unpkg.com/pako@2.0.3/dist/pako.esm.mjs",
+    "kaboom": "https://unpkg.com/kaboom@next/dist/kaboom.mjs"
   }
 }
 </script>
-
-<script src="https://kaboomjs.com/lib/dev/kaboom.js"></script>
 <script type="module">
+import kaboom from 'kaboom'
 import tiledKaboom from 'tiled-kaboom'
 import map from './map.json' assert { type: "json" }
 
