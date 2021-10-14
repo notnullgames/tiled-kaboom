@@ -222,8 +222,9 @@ export default (k) => {
 
         const sliceX = tileset.imagewidth / tileset.tilewidth
         const sliceY = tileset.imageheight / tileset.tileheight
-        map.sprites.push(await k.loadSprite(tileset.name, `${location}${tileset.image}`, { sliceX, sliceY }))
-
+        if (tileset.image) {
+          map.sprites.push(await k.loadSprite(tileset.name, `${location}${tileset.image}`, { sliceX, sliceY }))
+        }
         for (let frame = tileset.firstgid; frame < (tileset.firstgid + tileset.tilecount); frame++) {
           map.key[mapsymbols[frame]] = () => [k.sprite(tileset.name, { frame: frame - 1 })]
         }
