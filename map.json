@@ -138,7 +138,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"player"
+                         "value":"badbear"
                         }],
                  "rotation":0,
                  "type":"enemy",
@@ -160,7 +160,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"player"
+                         "value":"badbear"
                         }],
                  "rotation":0,
                  "type":"enemy",

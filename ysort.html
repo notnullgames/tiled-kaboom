@@ -38,8 +38,9 @@ const k = kaboom({
     plugins: [ tiledKaboom ]
 })
 
-// load a sprite called player
+// load sprites
 loadSprite('player', 'player.png')
+loadSprite('badbear', 'badbear.png')
 
 // parse map
 const {levels, key, mapObj } = await k.loadTiledMap(map)
