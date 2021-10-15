@@ -42,9 +42,23 @@ const k = kaboom({
 loadSprite('player', 'player.png')
 
 // parse map
-const {levels, key } = await k.loadTiledMap(map)
-for (let level of levels) {
-  addLevel(level, { width: 32, height: 32, ...key })
+const {levels, key, mapObj } = await k.loadTiledMap(map)
+
+// return a nice object for an array of Tiled properties
+function getProperties(object) {
+  return object?.properties?.reduce((a, v) => ({ ...a, [v.name]: v.value }), {}) || {}
+}
+
+
+const info = mapObj.layers.filter(layer => layer.type === 'tilelayer')
+const allProps = []
+
+// things that are not over
+for (const l in levels) {
+  allProps.push(getProperties(info[l]))
+  if (!allProps[l].over){
+    addLevel(levels[l], { width: 32, height: 32, ...key })
+  }
 }
 
 // get layer called "Objects"
@@ -99,9 +113,9 @@ action("player", player => {
 // add all objects with a "sprite" property
 for (const object of objects) {
   // get props in nicer object
-  const props = object.properties.reduce((a, v) => ({ ...a, [v.name]: v.value }), {})
+  const props = getProperties(object)
   
-  // must have "prite" prop to use a sprite
+  // must have "sprite" prop to use a sprite
   if (props.sprite) {
     const newthing = [
       sprite(props.sprite),
@@ -138,6 +152,13 @@ for (const object of objects) {
     }else{
       nonPlayers.push(mapObject)
     }
+  }
+}
+
+// things with "over" prop
+for (const l in levels) {
+  if (allProps[l].over){
+    addLevel(levels[l], { width: 32, height: 32, ...key })
   }
 }
 
