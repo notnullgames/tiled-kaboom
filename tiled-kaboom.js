@@ -246,7 +246,7 @@ export default (k) => {
             }
           }
 
-          const mapArray = [...new Array(width)].map(() => (new Array(height + 1).fill(' ')))
+          const mapArray = [...new Array(height)].map(() => (new Array(width + 1).fill(' ')))
           for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
               const cell = (y * width) + x
